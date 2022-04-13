@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Animation</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
+
+    <style>
+
+      body{
+        padding: 40px;
+        background-color: #121212;  
+      }
+
+      #parent {
+        height: 80px;
+        overflow: hidden; 
+        font-family: 'Source Code Pro', monospace;  
+        font-size: 28px;
+        color: rgba(255,255,255,.70);
+        position: relative;
+      }
+
+      #border {
+        border-bottom: solid 3px rgba(0,255,0,.75);
+        position: absolute;
+        right: -7px;
+        width: 20px;
+      }
+
+      /* Animation */
+      #parent {
+        animation: animated-text 2s steps(60,end) 1s 1 normal both
+      }
+
+      #border {
+        animation: animated-cursor 600ms steps(60,end) infinite;
+      }
+
+      /* text animation */
+
+      @keyframes animated-text{
+        0%{
+          width: 0;
+          top: 0;
+        }50%{
+          width: 480px;
+          top: 0;
+        }51%{
+          width: 0px;
+          top: 80px;
+        }
+        100%{
+          top: 80px;
+          width: 480px;
+        }
+      }
+
+      /* cursor animations */
+
+      @keyframes animated-cursor{
+        from{border-bottom-color: rgba(0,255,0,.75);}
+        to{border-bottom-color: transparent;}
+      }
+
+    </style>
+
+</head>
+<body>
+
+  <div id="parent">
+    This is a typewriter effect.
+    This is a typewriter effect.
+    <div id="border"></div>
+  </div>
+
+</body>
+</html>
